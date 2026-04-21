@@ -117,4 +117,7 @@ FUTURE WORK
 
 AUTHORS
 
-Suhas Kanamadi and Team
+Suhas Kanamadi
+Srijan Das
+Suhan Kagawade
+Stephen Paul
