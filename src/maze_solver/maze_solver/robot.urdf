@@ -1,0 +1,115 @@
+<robot name="advanced_robot">
+
+  <!-- ================= BASE ================= -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.8 0.5 0.25"/>
+      </geometry>
+      <material name="body">
+        <color rgba="0.6 0.6 0.6 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- ================= BIG REAR WHEELS ================= -->
+  <link name="left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.25" length="0.08"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.25" length="0.08"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <!-- ================= FRONT SMALL WHEELS ================= -->
+  <link name="front_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.12" length="0.05"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="front_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.12" length="0.05"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- ================= SENSOR POLE ================= -->
+  <link name="sensor_pole">
+    <visual>
+      <geometry>
+        <cylinder radius="0.05" length="0.6"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- ================= CAMERA ================= -->
+  <link name="camera">
+    <visual>
+      <geometry>
+        <box size="0.4 0.25 0.25"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- ================= JOINTS ================= -->
+
+  <joint name="left_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 0.35 -0.1" rpy="1.57 0 0"/>
+  </joint>
+
+  <joint name="right_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
+    <origin xyz="0 -0.35 -0.1" rpy="1.57 0 0"/>
+  </joint>
+
+  <joint name="front_left_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0.35 0.2 -0.15" rpy="1.57 0 0"/>
+  </joint>
+
+  <joint name="front_right_wheel_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.35 -0.2 -0.15" rpy="1.57 0 0"/>
+  </joint>
+
+  <joint name="sensor_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="sensor_pole"/>
+    <origin xyz="0 0 0.4"/>
+  </joint>
+
+  <joint name="camera_joint" type="fixed">
+    <parent link="sensor_pole"/>
+    <child link="camera"/>
+    <origin xyz="0 0 0.35"/>
+  </joint>
+
+</robot>
